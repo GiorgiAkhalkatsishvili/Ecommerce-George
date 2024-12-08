@@ -1,0 +1,143 @@
+
+.topSellersComponent .sellers-inner-texts{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.sellers-inner-texts h1{
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.sellers-inner-texts p{
+  color: #555555;
+  font-size: 20px;
+  line-height: 48px;
+  text-align: center;
+  padding-bottom: 48px;
+}
+
+.sellers-list{
+  display: grid;
+  max-width: 1240px;
+  width: 100%;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.sellers-list .seller-one{
+  max-width: 295px;
+  width: 100%;
+  text-align: center;
+}
+
+.sellers-list .seller-one img{
+  width: 100%;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.sellers-list .seller-one h2{
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  line-height: 25px;
+}
+
+.sellers-list .seller-one p{
+  font-size: 16px;
+  color: #024E82;
+  line-height: 19px;
+}
+
+.sellers-list .seller-one img:hover {
+  transform: scale(1.1);
+}
+
+.topSellersComponent .sellers-button{
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 93px;
+}
+
+.topSellersComponent .sellers-button button{
+  max-width: 161px;
+  width: 100%;
+  max-height: 58px;
+  height: 100vh;
+  color: #fff;
+  background-color: #024E82;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.topSellersComponent .sellers-button button:hover{
+  background-color: #00365a;
+}
+
+@media only screen and (max-width: 800px){
+  .topSellersComponent .sellers-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    column-gap: 0;
+  }
+
+  .sellers-list .seller-one img{
+max-width: 310px;
+width: 100%;
+  }
+}
+
+@media only screen and (max-width: 670px){
+  .topSellersComponent .sellers-list{
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .sellers-list .seller-img img{
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .sellers-list .seller-one{
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 460px){
+  .topSellersComponent .sellers-list {
+      grid-template-columns: 1fr;
+      max-width: 300px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .sellers-list .seller-img img {
+      max-width: 300px;
+      width: 100%;
+    }
+  
+    .sellers-list .seller-one {
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .topSellersComponent .sellers-button button{
+       width: 140px;
+       height: 50px;
+      font-size: 14px;
+     }
+}

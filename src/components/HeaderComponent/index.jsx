@@ -3,6 +3,7 @@ import './HeaderComponent.css';
 import userImage from '../../assets/images/user.jpg';
 import cartImage from '../../assets/images/shopping-bag.png';
 import menuImage from '../../assets/images/menu.png';
+import { Link } from 'react-router-dom';
 
 const HeaderComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,13 +17,13 @@ const HeaderComponent = () => {
       <div className="header-texts">
         <div className="headings-links">
           <div className="main-heading">
-            <h1>NorthStar</h1>
+            <h1><Link to='/'>NorthStar</Link></h1>
           </div>
           <div className="header-list">
             <ul>
-              <li id='home'>HOME</li>
-              <li>ABOUT</li>
-              <li>CONTACT US</li>
+              <li><Link id='home' to="/">HOME</Link></li>
+              <li><Link to='/about'>ABOUT</Link></li>
+              <li><Link to='/contact'>CONTACT US</Link></li>
             </ul>
           </div>
         </div>
@@ -32,7 +33,9 @@ const HeaderComponent = () => {
             <img src={userImage} alt="User" />
           </div>
           <div className="img-two header-img">
-            <img src={cartImage} alt="Cart" />
+            <Link to='/cart'>
+              <img src={cartImage} alt="Cart" />
+            </Link>
           </div>
           <div className="img-three header-img" onClick={toggleMenu}>
             <img src={menuImage} alt="Menu" />
@@ -44,9 +47,9 @@ const HeaderComponent = () => {
         isMenuOpen ? (
         <div className="dropdown-menu">
           <ul>
-            <li>HOME</li>
-            <li>ABOUT</li>
-            <li>CONTACT US</li>
+            <li><Link id='home' to="/">HOME</Link></li>
+            <li><Link to='/about'>ABOUT</Link></li>
+            <li><Link to='/contact'>CONTACT US</Link></li>
           </ul>
         </div>
       ): ''}

@@ -48,6 +48,7 @@
   font-size: 16px;
   color: #555555;
   padding-bottom: 17px;
+  background-color: #FBFBFB;
 }
 
 .footer-input .arrow-img img {
@@ -116,4 +117,3 @@ gap: 30px;
     flex-direction: column;
   }
 }
-

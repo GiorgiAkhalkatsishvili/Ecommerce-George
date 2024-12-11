@@ -15,8 +15,10 @@
   justify-content: space-between;
 }
 
-.headerComponent .headings-links .main-heading h1 {
+.headerComponent .headings-links .main-heading h1 a{
   font-size: 36px;
+  text-decoration: none;
+  color: #000000;
 }
 
 .headerComponent .header-list ul {
@@ -27,9 +29,22 @@
 
 .headerComponent .header-list ul li {
   list-style-type: none;
+}
+
+.headerComponent .header-list ul li a{
+  text-decoration: none;
   font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
+    font-weight: 700;
+    cursor: pointer;
+    color: #000000;
+}
+
+.headerComponent .dropdown-menu ul li a{
+  text-decoration: none;
+  font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #000000;
 }
 
 .header-list ul #home {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './CenterComponent.css'
 import person1 from '../../assets/images/person1.png'
 import person2 from '../../assets/images/person2.png'
@@ -12,8 +12,18 @@ import truckIcon from '../../assets/images/truck-icon.png'
 import circleIcon from '../../assets/images/circle-icon.png'
 import rotationIcon from '../../assets/images/rotation-icon.png';
 import fingerIcon from '../../assets/images/finger-icon.png'
+import { useDispatch, useSelector } from 'react-redux';
 
 const CenterComponent = () => {
+
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.products)
+  
+  useEffect(() => {
+    console.log(products, 'this is products')
+  }, [])
+
+
   return (
     <div className='centerComponent'>
       <div className="center-main-heading">
@@ -22,65 +32,19 @@ const CenterComponent = () => {
       <div className="center-info">
         <p>Recently added shirts!</p>
       </div>
-      <div className="center-products">
-          <div className="products-list">
-        <div className="product-one product">
-          <img src={person1} alt="" />
-          <div className="description">
-            <h2>Plain White Shirt</h2>
-            <p>$29.00</p>
+      
+      <div className="map">
+         {products.map((item, index) => (
+         <div className="center-products">
+           <div className="products-list">
+          <div className="product" key={item.id}>
+            <img src={item.img} alt="" />
+               <h2>{item.title}</h2>
+               <p>{item.price}</p>
           </div>
-        </div>
-        <div className="product-one product">
-          <img src={person2} alt="" />
-          <div className="description">
-            <h2>Denim Jacket </h2>
-            <p>$69.00</p>
           </div>
-        </div>
-        <div className="product-one product">
-          <img src={person3} alt="" />
-          <div className="description">
-            <h2>Black Polo Shirt</h2>
-            <p>$49.00</p>
-          </div>
-        </div>
-        <div className="product-one product">
-          <img src={person4} alt="" />
-          <div className="description">
-            <h2>Blue Sweatshirt</h2>
-            <p>$79.00</p>
-          </div>
-        </div>
-        <div className="product-one product">
-          <img src={person5} alt="" />
-          <div className="description">
-            <h2>Blue Plain Shirt</h2>
-            <p>$49.00</p>
-          </div>
-        </div>
-        <div className="product-one product">
-          <img src={person6} alt="" />
-          <div className="description">
-            <h2>Dark Blue Shirt</h2>
-            <p>$89.00</p>
-          </div>
-        </div>
-        <div className="product-one product">
-          <img src={person7} alt="" />
-          <div className="description">
-            <h2>Outcast T Shirt</h2>
-            <p>$19.00</p>
-          </div>
-        </div>
-        <div className="product-one product">
-          <img src={person8} alt="" />
-          <div className="description">
-            <h2>Polo Plain Shirt</h2>
-            <p>$29.00</p>
-          </div>
-        </div>
       </div>
+      ))}
       </div>
       
       <div className="center-footer">

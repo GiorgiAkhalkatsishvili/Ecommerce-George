@@ -1,24 +1,28 @@
 import './App.css';
-import BottomBannerComponent from './components/BottomBannerComponent';
-import CenterComponent from './components/CenterComponent';
-import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
-import HeroComponent from './components/HeroComponent';
-import TopSellersComponent from './components/TopSellersComponent';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
+import CartPage from './pages/CartPage';
+
+
 
 function App() {
+  
   return (
     <div className="App">
-      <HeaderComponent />
-      <HeroComponent />
-      <CenterComponent />
-      <BottomBannerComponent />
-      <TopSellersComponent />
-      <FooterComponent/>
+      <Router>
+        <HeaderComponent />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/contact' element={<ContactPage />} />
+          <Route path='/cart' element={<CartPage/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
 
 export default App;
-
-

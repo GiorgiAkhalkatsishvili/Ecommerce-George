@@ -190,4 +190,8 @@ gap: 60px;
    .center-main-heading h1 {
     text-align: center;
     }
+
+    .centerComponent .map{
+      row-gap: 30px;
+    }
 }

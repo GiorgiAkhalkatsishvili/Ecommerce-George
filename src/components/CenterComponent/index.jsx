@@ -1,27 +1,22 @@
 import React, { useEffect } from 'react'
 import './CenterComponent.css'
-import person1 from '../../assets/images/person1.png'
-import person2 from '../../assets/images/person2.png'
-import person3 from '../../assets/images/person3.png'
-import person4 from '../../assets/images/person4.png'
-import person5 from '../../assets/images/person5.png'
-import person6 from '../../assets/images/person6.png'
-import person7 from '../../assets/images/person7.png'
-import person8 from '../../assets/images/person8.png'
 import truckIcon from '../../assets/images/truck-icon.png'
 import circleIcon from '../../assets/images/circle-icon.png'
 import rotationIcon from '../../assets/images/rotation-icon.png';
 import fingerIcon from '../../assets/images/finger-icon.png'
 import { useDispatch, useSelector } from 'react-redux';
+import { addCartItems } from '../../redux/productsSlice';
 
 const CenterComponent = () => {
-
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products)
-  
-  useEffect(() => {
-    console.log(products, 'this is products')
-  }, [])
+  const cartItems = useSelector((state) => state.products.cartItems);
+
+
+  const addProductsToCart = (index, post) => {
+    dispatch(addCartItems(post));
+  }
+
 
 
   return (
@@ -34,13 +29,13 @@ const CenterComponent = () => {
       </div>
       
       <div className="map">
-         {products.map((item, index) => (
+         {products.map((post, index) => (
          <div className="center-products">
            <div className="products-list">
-          <div className="product" key={item.id}>
-            <img src={item.img} alt="" />
-               <h2>{item.title}</h2>
-               <p>{item.price}</p>
+          <div className="product" onClick={()=>addProductsToCart(index, post)} key={post.id}>
+            <img src={post.img} alt="" />
+               <h2>{post.title}</h2>
+               <p>{post.price}</p>
           </div>
           </div>
       </div>

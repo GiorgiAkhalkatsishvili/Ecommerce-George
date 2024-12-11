@@ -4,6 +4,7 @@ import userImage from '../../assets/images/user.jpg';
 import cartImage from '../../assets/images/shopping-bag.png';
 import menuImage from '../../assets/images/menu.png';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const HeaderComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +12,8 @@ const HeaderComponent = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const cartItems = useSelector((state) => state.products.cartItems);
 
   return (
     <div className='headerComponent'>
@@ -36,6 +39,7 @@ const HeaderComponent = () => {
             <Link to='/cart'>
               <img src={cartImage} alt="Cart" />
             </Link>
+            <p>{cartItems?.length}</p>
           </div>
           <div className="img-three header-img" onClick={toggleMenu}>
             <img src={menuImage} alt="Menu" />

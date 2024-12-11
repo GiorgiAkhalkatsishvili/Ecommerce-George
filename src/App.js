@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
 import CartPage from './pages/CartPage';
+import FooterComponent from './components/FooterComponent';
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route path='/contact' element={<ContactPage />} />
           <Route path='/cart' element={<CartPage/>}/>
         </Routes>
+        <FooterComponent/>
       </Router>
     </div>
   );

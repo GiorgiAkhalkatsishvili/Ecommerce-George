@@ -3,7 +3,6 @@ import HeroComponent from '../../components/HeroComponent';
 import CenterComponent from '../../components/CenterComponent';
 import BottomBannerComponent from '../../components/BottomBannerComponent';
 import TopSellersComponent from '../../components/TopSellersComponent';
-import FooterComponent from '../../components/FooterComponent';
 
 
 const HomePage = () => {
@@ -13,7 +12,6 @@ const HomePage = () => {
       <CenterComponent />
       <BottomBannerComponent />
       <TopSellersComponent />
-      <FooterComponent/>
     </div>
   )
 }

@@ -20,15 +20,25 @@ const productsSlice = createSlice({
     { id: 6, img: person6, price: '$40.99', title: "Product 7" },
     { id: 7, img: person7, price: '$27.99', title: "Product 7" },
     { id: 8, img: person8, price: '$59.99', title: "Product 8" }
-  ]
+    ],
+    cartItems: [],
   },
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload;
-    }
+    },
+    addCartItems: (state, action) => {
+      const exists = state.cartItems.some(item=>item.id === action.payload.id)
+      if (!exists) {
+        state.cartItems.push(action.payload)
+      }
+    },
+    removeProductFromCart: (state, action) => {
+      state.cartItems = state.cartItems.filter(product => product.id !== action.payload)
+    },
   }
 });
 
 
-export const { setProducts } = productsSlice.actions;
+export const { setProducts, addCartItems, removeProductFromCart } = productsSlice.actions;
 export default productsSlice.reducer;

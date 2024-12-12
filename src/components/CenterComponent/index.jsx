@@ -35,7 +35,7 @@ const CenterComponent = () => {
           <div className="product" onClick={()=>addProductsToCart(index, post)} key={post.id}>
             <img src={post.img} alt="" />
                <h2>{post.title}</h2>
-               <p>{post.price}</p>
+               <p>${post.price}</p>
           </div>
           </div>
       </div>

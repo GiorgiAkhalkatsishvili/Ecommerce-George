@@ -4,10 +4,13 @@ import './CartComponent.css'
 import { removeProductFromCart } from '../../redux/productsSlice';
 
 
+
 const CartComponent = () => {
   const [count, setCount] = useState(0);
+  const [message, setMessage] = useState("");
 
   const cartItems = useSelector((state) => state.products.cartItems);
+  const products = useSelector((state)=> state.products.products)
   const dispatch = useDispatch();
 
   const removeItem = (id) => {
@@ -24,6 +27,24 @@ const CartComponent = () => {
     setCount(lowerCount);
   }
 
+ const totalPrice = cartItems.reduce((total, item) => {
+    return total + item.price;
+ }, 0);
+  
+  const roundedTotalPrice = Math.round(totalPrice * 100) / 100;  //ეს ინტერნეტში ვნახე//
+
+
+ const checkoutFunc = () => {
+    if (totalPrice) {
+      setMessage(`✅Checkout successful`);
+    } else {
+     setMessage('')
+   }
+   setTimeout(() => {
+    setMessage('')
+  },3000)
+  };
+
 
   return (
     <div>
@@ -38,7 +59,7 @@ const CartComponent = () => {
               <div className="cart-item-texts">
                 <div className="cart-item-info">
                   <h2>{item.title}</h2>
-                <p>{item.price}</p>
+                <p>${item.price}</p>
                 </div>
                 <div className="increase-descrease">
                   <div className="inner">
@@ -57,9 +78,43 @@ const CartComponent = () => {
                   <button onClick={()=> removeItem(item.id)}>remove</button>
                 </div>
               </div>
+            </div>
           </div>
+        ))}
+        <div className='checkout-box'>
+          <div className="checkout-inner">
+            <div className="checkout-heading">
+            <h1><span>CART</span> TOTALS ──</h1>
           </div>
-      ))}
+          <div className="checkout-info">
+              <div className="total">
+                 <p>Items</p>
+              </div>
+              <div className="length">
+                <p>{cartItems.length}</p>
+              </div>
+            </div>
+          <div className="checkout-info">
+              <div className="price">
+                 <p>Price</p>
+              </div>
+              <div className="price-number">
+                <p>${roundedTotalPrice}</p>
+              </div>
+            </div>
+            <div className="checkout-btn">
+            <button onClick={checkoutFunc}>Proceed Checkout</button>
+            </div>
+            {
+              message?(
+             <div className="successful-message">
+             {message}
+                </div>
+              ) :
+              ('')
+            }
+          </div>
+        </div>
       </div>
     </div>
   )

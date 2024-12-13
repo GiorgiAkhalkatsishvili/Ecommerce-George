@@ -36,7 +36,7 @@ const CartComponent = () => {
 
  const checkoutFunc = () => {
     if (totalPrice) {
-      setMessage(`✅Checkout successful`);
+      setMessage(`✅ Checkout successful`);
     } else {
      setMessage('')
    }

@@ -210,4 +210,10 @@ gap: 30px;
     .centerComponent .map{
       row-gap: 30px;
     }
+
+    .centerComponent .descr-one{
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
 }

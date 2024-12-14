@@ -3,10 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import './CartComponent.css'
 import { removeProductFromCart } from '../../redux/productsSlice';
 
-
-
 const CartComponent = () => {
-  const [count, setCount] = useState(0);
+  const [itemCounts, setItemCounts] = useState({});
   const [message, setMessage] = useState("");
 
   const cartItems = useSelector((state) => state.products.cartItems);
@@ -17,16 +15,19 @@ const CartComponent = () => {
     dispatch(removeProductFromCart(id))
   }
 
-  const increaseCount = () => {
-    const newCount = count + 1;
-    setCount(newCount);
-  }
+ const increaseCount = (id) => {
+  setItemCounts((prevCounts) => ({
+    ...prevCounts,
+    [id]: (prevCounts[id] || 0) + 1, // Increment count only for this item, default to 0 if undefined
+  }));
+};
 
-  const decreaseCount = () => {
-    const lowerCount = count - 1; 
-    setCount(lowerCount);
-  }
-
+const decreaseCount = (id) => {
+  setItemCounts((prevCounts) => ({
+    ...prevCounts,
+    [id]: Math.max((prevCounts[id] || 0) - 1, 0), // Prevent going below 0, default to 0 if undefined
+  }));
+};
  const totalPrice = cartItems.reduce((total, item) => {
     return total + item.price;
  }, 0);
@@ -52,7 +53,7 @@ const CartComponent = () => {
         <div className="main-cart-heading">
           <h1><span>YOUR</span> CART ──</h1>
         </div>
-        {cartItems.map((item, index) => (
+        {cartItems.map((item, index) =>(
            <div className="products-list">
           <div className="cart-product">
             <img src={item.img} alt="" />
@@ -63,16 +64,12 @@ const CartComponent = () => {
                 </div>
                 <div className="increase-descrease">
                   <div className="inner">
-                  <p>{count}</p>
+                    <p>{itemCounts[item.id] || 0}</p> 
                     <div className="arrows">
-                    <span onClick={increaseCount}>▲</span>
-                      <span onClick={() => {
-                         if (count > 0) {
-                          decreaseCount()
-                        }
-                    }}>▼</span>
-                   </div>
-                </div>
+                      <span onClick={() => increaseCount(item.id)}>▲</span>
+                      <span onClick={() => decreaseCount(item.id)}>▼</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="cart-btn">
                   <button onClick={()=> removeItem(item.id)}>remove</button>

@@ -39,6 +39,17 @@
   flex-direction: column;
   gap: 24px;
 }
+
+.container-one .banner-paragraph{
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+.container-two .banner-paragraph{
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
 .container-two .inner-texts{
   text-align: center;
     display: flex;

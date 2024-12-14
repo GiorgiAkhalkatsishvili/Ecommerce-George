@@ -29,6 +29,7 @@
 
 .headerComponent .header-list ul li {
   list-style-type: none;
+  color: #024E82 transparent;
 }
 
 .headerComponent .header-list ul li a{
@@ -36,7 +37,7 @@
   font-size: 12px;
     font-weight: 700;
     cursor: pointer;
-    color: #000000;
+    color: #000;
 }
 
 .headerComponent .dropdown-menu ul li a{
@@ -45,10 +46,6 @@
     font-weight: 700;
     cursor: pointer;
     color: #000000;
-}
-
-.header-list ul #home {
-  color: #024E82;
 }
 
 
@@ -85,6 +82,10 @@ align-items: center;
 
 .dropdown-menu{
   display: none;
+}
+
+.header-list ul li a.active {
+ color: #024E82;
 }
 
 

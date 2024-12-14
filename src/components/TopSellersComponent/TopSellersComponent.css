@@ -30,19 +30,18 @@
   gap: 20px;
 }
 
-.sellers-list .seller-one{
-  max-width: 295px;
+.sellers-list .seller{
   width: 100%;
   text-align: center;
 }
 
-.sellers-list .seller-one img{
+.sellers-list img{
   width: 100%;
   transition: .5s ease;
   cursor: pointer;
 }
 
-.sellers-list .seller-one h2{
+.sellers-list h2{
   margin-top: 16px;
   font-size: 16px;
   font-weight: 800;
@@ -50,13 +49,13 @@
   line-height: 25px;
 }
 
-.sellers-list .seller-one p{
+.sellers-list p{
   font-size: 16px;
   color: #024E82;
   line-height: 19px;
 }
 
-.sellers-list .seller-one img:hover {
+.sellers-list img:hover {
   transform: scale(1.1);
 }
 
@@ -78,6 +77,7 @@
   transition: .3s ease-in-out;
   font-size: 16px;
   line-height: 22px;
+  outline: none;
 }
 
 .topSellersComponent .sellers-button button:hover{
@@ -92,7 +92,7 @@
     column-gap: 0;
   }
 
-  .sellers-list .seller-one img{
+  .sellers-list img{
 max-width: 310px;
 width: 100%;
   }
@@ -103,15 +103,16 @@ width: 100%;
     grid-template-columns: 1fr;
     max-width: 400px;
     width: 100%;
+    place-items: center;
     text-align: center;
   }
 
-  .sellers-list .seller-img img{
+  .seller img{
     max-width: 400px;
     width: 100%;
   }
   
-  .sellers-list .seller-one{
+  .products-list {
     max-width: 400px;
     width: 100%;
   }
@@ -125,12 +126,12 @@ width: 100%;
       text-align: center;
     }
   
-    .sellers-list .seller-img img {
+    .sellers-list img {
       max-width: 300px;
       width: 100%;
     }
   
-    .sellers-list .seller-one {
+    .sellers-list  {
       max-width: 300px;
       width: 100%;
     }

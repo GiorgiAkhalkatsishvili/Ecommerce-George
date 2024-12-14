@@ -64,6 +64,14 @@ gap: 6px;
 margin-top: 16px;
 }
 
+#loader{
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .centerComponent .product h2{
   font-weight: 800;
   font-size: 16px;
@@ -85,11 +93,10 @@ margin-top: 16px;
 }
 
 .centerComponent .center-footer{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   gap: 82px;
-  margin: auto;
-  max-width: 1240px;
 }
 
 .center-footer .descr-one{
@@ -113,16 +120,26 @@ line-height: 25px;
   font-weight: 400;
 }
 
+@media only screen and (max-width: 975px){
+  .centerComponent .center-footer {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 82px;
+    }
+}
+
 @media only screen and (max-width: 800px){
 .centerComponent .map{
   grid-template-columns: 1fr 1fr;
 }
 
 .centerComponent .center-footer{
+  display: grid;
 grid-template-columns: 1fr 1fr;
 margin: auto;
 max-width: fit-content;
-gap: 60px;
+gap: 30px;
 }
 
 }
@@ -158,7 +175,6 @@ gap: 60px;
   }
 
   .centerComponent .center-footer{
-    margin-top: 90px;
     padding-left: 10px;
     padding-right: 10px;
   }

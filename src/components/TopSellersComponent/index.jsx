@@ -1,11 +1,17 @@
 import React from 'react';
 import './TopSellersComponent.css'
-import firstSeller from '../../assets/images/seller1.png'
-import secondSeller from '../../assets/images/seller2.png'
-import thirdSeller from '../../assets/images/seller3.png'
-import fourthSeller from '../../assets/images/seller4.png'
+import { useDispatch, useSelector } from 'react-redux';
+import { addCartItems } from '../../redux/productsSlice';
+
 
 const TopSellersComponent = () => {
+  const SecondProductsArray = useSelector((state) => state.products.SecondProductsArray);
+
+  const addProductsToCart = (index, post) => {
+      dispatch(addCartItems(post));
+  }
+  const dispatch = useDispatch();
+
   return (
     <div className='topSellersComponent'>
       <div className="sellers-inner-texts">
@@ -17,50 +23,17 @@ const TopSellersComponent = () => {
       </div>
       </div>
       <div className="sellers-list">
-        <div className="seller-one">
-          <div className="seller-img">
-            <img src={firstSeller} alt="" />
+        {SecondProductsArray.map((post, index) => (
+         <div className="center-products">
+           <div className="products-list">
+          <div className="seller" onClick={()=>addProductsToCart(index, post)} key={post.id}>
+            <img src={post.img} alt="" />
+               <h2>{post.title}</h2>
+               <p>${post.price}</p>
           </div>
-          <div className="seller-title">
-            <h2>Gray Polo Shirt</h2>
           </div>
-          <div className="seller-price">
-            <p>$49.00</p>
-          </div>
-        </div>
-        <div className="seller-one">
-          <div className="seller-img">
-            <img src={secondSeller} alt="" />
-          </div>
-          <div className="seller-title">
-            <h2>Red Shirt</h2>
-          </div>
-          <div className="seller-price">
-            <p>$69.00</p>
-          </div>
-        </div>
-        <div className="seller-one">
-          <div className="seller-img">
-            <img src={thirdSeller} alt="" />
-          </div>
-          <div className="seller-title">
-            <h2>Polo White Shirt</h2>
-          </div>
-          <div className="seller-price">
-            <p>$29.00</p>
-          </div>
-        </div>
-        <div className="seller-one">
-          <div className="seller-img">
-            <img src={fourthSeller} alt="" />
-          </div>
-          <div className="seller-title">
-            <h2>Pink Casual Shirt</h2>
-          </div>
-          <div className="seller-price">
-            <p>$39.00</p>
-          </div>
-        </div>
+      </div>
+      ))}
       </div>
 
       <div className="sellers-button">

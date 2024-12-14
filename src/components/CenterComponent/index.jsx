@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './CenterComponent.css'
 import truckIcon from '../../assets/images/truck-icon.png'
 import circleIcon from '../../assets/images/circle-icon.png'

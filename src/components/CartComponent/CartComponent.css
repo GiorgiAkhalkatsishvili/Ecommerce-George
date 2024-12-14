@@ -179,6 +179,7 @@ margin-top: 50px;
   color: #fff;
   font-size: 16px;
   transition: .3s ease-in-out;
+  outline: none;
 }
 
 .checkout-box .checkout-inner .checkout-btn button:hover{
@@ -225,18 +226,18 @@ margin-top: 50px;
  .products-list{
   padding-left: 10px;
   padding-right: 10px;
+  max-width: 100%;
+  width: 100%;
  } 
 
  .cartItems .main-cart-heading h1{
   padding-left: 10px;
   padding-right: 10px;
  }
-}
 
-@media only screen and (max-width:460px){
-  .successful-message{
-    top: 40px;
-  }
+ .checkout-inner {
+   padding-right: 15px;
+ }
 }
 
 
@@ -277,5 +278,9 @@ margin-top: 50px;
   .checkout-box{
     display: flex;
     justify-content: center;
+  }
+
+  .successful-message{
+    top: 45px;
   }
 }

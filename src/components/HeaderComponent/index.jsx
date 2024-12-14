@@ -8,6 +8,12 @@ import { useSelector } from 'react-redux';
 
 const HeaderComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('/');
+
+  const handleClick = (path) => {
+    setActiveLink(path);
+  };
+
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,9 +30,15 @@ const HeaderComponent = () => {
           </div>
           <div className="header-list">
             <ul>
-              <li><Link id='home' to="/">HOME</Link></li>
-              <li><Link to='/about'>ABOUT</Link></li>
-              <li><Link to='/contact'>CONTACT US</Link></li>
+              <li>
+                <Link to="/" onClick={()=>handleClick('/')} className={activeLink === '/' ? 'active' : ''}>HOME</Link>
+              </li>
+              <li>
+                <Link to='/about' onClick={() => handleClick('/about')} className={activeLink === '/about' ? 'active' : ''}>ABOUT</Link>
+              </li>
+              <li>
+                <Link to='/contact' onClick={()=>handleClick('/contact')} className={activeLink === '/contact' ? 'active' : ''}>CONTACT US</Link>
+              </li>
             </ul>
           </div>
         </div>

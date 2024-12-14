@@ -150,7 +150,8 @@ line-height: 25px;
 grid-template-columns: 1fr 1fr;
 margin: auto;
 max-width: fit-content;
-gap: 30px;
+gap: 50px;
+margin-top: 40px;
 }
 
 }
@@ -188,7 +189,8 @@ gap: 30px;
   .centerComponent .center-footer{
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 40px;
+    margin-top: 140px;
+    gap: 30px;
   }
 
 }

@@ -12,6 +12,14 @@ const TopSellersComponent = () => {
   }
   const dispatch = useDispatch();
 
+ const handleShopNowClick = () => {
+      // Scroll to the 'sellers-list' section smoothly
+      const sellersListSection = document.querySelector('.topSellersComponent');
+      if (sellersListSection) {
+        sellersListSection.scrollIntoView({ behavior: 'smooth' });
+      }
+  }
+
   return (
     <div className='topSellersComponent'>
       <div className="sellers-inner-texts">
@@ -37,7 +45,7 @@ const TopSellersComponent = () => {
       </div>
 
       <div className="sellers-button">
-        <button>SHOP NOW</button>
+        <button onClick={handleShopNowClick}>SHOP NOW</button>
       </div>
     </div>
   )

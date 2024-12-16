@@ -1,7 +1,12 @@
 import React from 'react'
 import './BottomBannerComponent.css'
 
-const BottomBannerComponent = () => {
+const BottomBannerComponent = ({scrollRef}) => {
+  const scrollToSection = () => {
+    scrollRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+
   return (
     <div className='bottomBanner'>
       <div className="container-one">
@@ -13,7 +18,7 @@ const BottomBannerComponent = () => {
         <p>A one-stop platform for all your fashion needs, hassle-free. Buy with a peace of mind.</p>
       </div>
       <div className="banner-btn">
-        <button>BUY NOW</button>
+        <button onClick={scrollToSection}>BUY NOW</button>
       </div>
        </div>
     </div>
@@ -26,7 +31,7 @@ const BottomBannerComponent = () => {
         <p>End of season sale. Buy any 2 items of your choice and get 1 free.</p>
       </div>
       <div className="banner-btn">
-        <button>BUY NOW</button>
+        <button onClick={scrollToSection}>BUY NOW</button>
       </div>
         </div>
     </div>

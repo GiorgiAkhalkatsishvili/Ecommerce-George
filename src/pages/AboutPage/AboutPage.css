@@ -39,16 +39,19 @@
 
 
 @media only screen and (max-width: 800px) {
-  .bottomBanner {
+  .AboutPageBanner {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
   }
 }
 
 @media only screen and (max-width: 460px) {
+
+  .AboutPageBanner{
+   padding-left: 10px;
+   padding-right: 10px;
+  }
   .container-one .inner-texts h1 {
     font-size: 27px;
   }

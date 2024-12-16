@@ -39,7 +39,7 @@
 
 
 @media only screen and (max-width: 800px) {
-  .bottomBanner {
+  .contactPageBanner {
     flex-direction: column;
     align-items: center;
     gap: 10px;

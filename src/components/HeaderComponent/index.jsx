@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './HeaderComponent.css';
 import userImage from '../../assets/images/user.jpg';
 import cartImage from '../../assets/images/shopping-bag.png';
@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 const HeaderComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('/');
+
 
   const handleClick = (path) => {
     setActiveLink(path);
@@ -26,7 +27,7 @@ const HeaderComponent = () => {
       <div className="header-texts">
         <div className="headings-links">
           <div className="main-heading">
-            <h1><Link to='/'>NorthStar</Link></h1>
+            <h1><Link to='/' onClick={()=>handleClick('/')} className={activeLink === '/' ? 'active' : ''}>NorthStar</Link></h1>
           </div>
           <div className="header-list">
             <ul>
@@ -63,9 +64,9 @@ const HeaderComponent = () => {
         isMenuOpen ? (
         <div className="dropdown-menu">
           <ul>
-            <li><Link id='home' to="/">HOME</Link></li>
-            <li><Link to='/about'>ABOUT</Link></li>
-            <li><Link to='/contact'>CONTACT US</Link></li>
+            <li><Link id='home' to="/" onClick={()=>handleClick('/')} className={activeLink === '/' ? 'active' : ''}>HOME</Link></li>
+            <li><Link to='/about' onClick={() => handleClick('/about')} className={activeLink === '/about' ? 'active' : ''}>ABOUT</Link></li>
+            <li><Link to='/contact' onClick={()=>handleClick('/contact')} className={activeLink === '/contact' ? 'active' : ''}>CONTACT US</Link></li>
           </ul>
         </div>
       ): ''}

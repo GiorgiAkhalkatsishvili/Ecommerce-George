@@ -13,7 +13,6 @@ const TopSellersComponent = () => {
   const dispatch = useDispatch();
 
  const handleShopNowClick = () => {
-      // Scroll to the 'sellers-list' section smoothly
       const sellersListSection = document.querySelector('.topSellersComponent');
       if (sellersListSection) {
         sellersListSection.scrollIntoView({ behavior: 'smooth' });

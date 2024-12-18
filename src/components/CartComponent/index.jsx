@@ -18,21 +18,21 @@ const CartComponent = () => {
  const increaseCount = (id) => {
   setItemCounts((prevCounts) => ({
     ...prevCounts,
-    [id]: (prevCounts[id] || 0) + 1, // Increment count only for this item, default to 0 if undefined
+    [id]: (prevCounts[id] || 0) + 1,
   }));
 };
 
 const decreaseCount = (id) => {
   setItemCounts((prevCounts) => ({
     ...prevCounts,
-    [id]: Math.max((prevCounts[id] || 0) - 1, 0), // Prevent going below 0, default to 0 if undefined
+    [id]: Math.max((prevCounts[id] || 0) - 1, 0), 
   }));
 };
  const totalPrice = cartItems.reduce((total, item) => {
     return total + item.price;
  }, 0);
   
-  const roundedTotalPrice = Math.round(totalPrice * 100) / 100;  //ეს ინტერნეტში ვნახე//
+  const roundedTotalPrice = Math.round(totalPrice * 100) / 100;
 
 
  const checkoutFunc = () => {

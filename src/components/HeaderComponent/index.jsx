@@ -13,6 +13,7 @@ const HeaderComponent = () => {
 
   const handleClick = (path) => {
     setActiveLink(path);
+    setIsMenuOpen(false);
   };
 
 

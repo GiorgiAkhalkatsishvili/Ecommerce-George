@@ -93,10 +93,11 @@ margin-top: 16px;
 }
 
 .centerComponent .center-footer{
+  max-width: 1240px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
-  gap: 82px;
+  margin: auto;
 }
 
 .center-footer .descr-one{

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './HeaderComponent.css';
 import userImage from '../../assets/images/user.jpg';
 import cartImage from '../../assets/images/shopping-bag.png';
@@ -10,36 +10,60 @@ const HeaderComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('/');
 
-
   const handleClick = (path) => {
     setActiveLink(path);
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Close the menu when a link is clicked
   };
 
-
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen); // Toggle the menu open/close state
   };
 
   const cartItems = useSelector((state) => state.products.cartItems);
 
   return (
-    <div className='headerComponent'>
+    <div className="headerComponent">
       <div className="header-texts">
         <div className="headings-links">
           <div className="main-heading">
-            <h1><Link to='/' onClick={()=>handleClick('/')} className={activeLink === '/' ? 'active' : ''}>NorthStar</Link></h1>
+            <h1>
+              <Link
+                to="/"
+                onClick={() => handleClick('/')}
+                className={activeLink === '/' ? 'active' : ''}
+              >
+                NorthStar
+              </Link>
+            </h1>
           </div>
           <div className="header-list">
             <ul>
               <li>
-                <Link to="/" onClick={()=>handleClick('/')} className={activeLink === '/' ? 'active' : ''}>HOME</Link>
+                <Link
+                  to="/"
+                  onClick={() => handleClick('/')}
+                  className={activeLink === '/' ? 'active' : ''}
+                >
+                  HOME
+                </Link>
               </li>
               <li>
-                <Link to='/about' onClick={() => handleClick('/about')} className={activeLink === '/about' ? 'active' : ''}>ABOUT</Link>
+                <Link
+                  to="/about"
+                  onClick={() => handleClick('/about')}
+                  className={activeLink === '/about' ? 'active' : ''}
+                >
+                  ABOUT
+                </Link>
               </li>
               <li>
-                <Link to='/contact' onClick={()=>handleClick('/contact')} className={activeLink === '/contact' ? 'active' : ''}>CONTACT US</Link>
+                <Link
+                  to="/contact"
+                  onClick={() => handleClick('/contact')}
+                  className={activeLink === '/contact' ? 'active' : ''}
+                >
+                  CONTACT US
+                </Link>
               </li>
             </ul>
           </div>
@@ -50,7 +74,7 @@ const HeaderComponent = () => {
             <img src={userImage} alt="User" />
           </div>
           <div className="img-two header-img">
-            <Link to='/cart'>
+            <Link to="/cart">
               <img src={cartImage} alt="Cart" />
             </Link>
             <p>{cartItems?.length}</p>
@@ -61,18 +85,41 @@ const HeaderComponent = () => {
         </div>
       </div>
 
-      {
-        isMenuOpen ? (
-        <div className="dropdown-menu">
-          <ul>
-            <li><Link id='home' to="/" onClick={()=>handleClick('/')} className={activeLink === '/' ? 'active' : ''}>HOME</Link></li>
-            <li><Link to='/about' onClick={() => handleClick('/about')} className={activeLink === '/about' ? 'active' : ''}>ABOUT</Link></li>
-            <li><Link to='/contact' onClick={()=>handleClick('/contact')} className={activeLink === '/contact' ? 'active' : ''}>CONTACT US</Link></li>
-          </ul>
-        </div>
-      ): ''}
+      {/* Conditional rendering of the dropdown menu */}
+      <div className={`dropdown-menu ${isMenuOpen ? 'open' : ''}`}>
+        <ul>
+          <li>
+            <Link
+              id="home"
+              to="/"
+              onClick={() => handleClick('/')}
+              className={activeLink === '/' ? 'active' : ''}
+            >
+              HOME
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              onClick={() => handleClick('/about')}
+              className={activeLink === '/about' ? 'active' : ''}
+            >
+              ABOUT
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/contact"
+              onClick={() => handleClick('/contact')}
+              className={activeLink === '/contact' ? 'active' : ''}
+            >
+              CONTACT US
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
-}
+};
 
 export default HeaderComponent;

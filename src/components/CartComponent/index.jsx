@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import './CartComponent.css'
 import { removeProductFromCart } from '../../redux/productsSlice';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CartComponent = () => {
   const [itemCounts, setItemCounts] = useState({});
@@ -37,13 +40,18 @@ const decreaseCount = (id) => {
 
  const checkoutFunc = () => {
     if (totalPrice) {
-      setMessage(`✅ Checkout successful`);
+      setMessage(
+        <div id='successful-message' className='success'  style={{width: '280px', display: 'flex', gap: '10px', alignItems: 'center'}}>
+        <FontAwesomeIcon icon={faCircleCheck}  style={{ fontSize: '25px', color: 'green'  }}/>
+            {' '}<p>Check out proceeded successfuly!</p>
+            </div>
+            );
     } else {
      setMessage('')
    }
    setTimeout(() => {
     setMessage('')
-  },3000)
+  },5000)
   };
 
 
@@ -104,7 +112,7 @@ const decreaseCount = (id) => {
             </div>
             {
               message?(
-             <div className="successful-message">
+             <div className="success-notification">
              {message}
                 </div>
               ) :
